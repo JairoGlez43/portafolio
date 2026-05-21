@@ -14,6 +14,12 @@ export function Hero() {
 
   useGSAP(
     () => {
+      // Honor user motion preferences: skip animations entirely.
+      const prefersReducedMotion =
+        typeof window !== "undefined" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (prefersReducedMotion) return;
+
       // Entry timeline
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 

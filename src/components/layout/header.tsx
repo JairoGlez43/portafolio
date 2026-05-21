@@ -39,12 +39,15 @@ export function Header() {
           jairo.gz<span className="text-accent">.</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Principal">
+        <nav
+          className="flex items-center gap-4 text-[13px] sm:gap-8 sm:text-sm"
+          aria-label="Principal"
+        >
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="text-muted-foreground transition-colors hover:text-foreground"
             >
               {item.label}
             </Link>
