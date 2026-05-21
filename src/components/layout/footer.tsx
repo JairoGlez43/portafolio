@@ -24,12 +24,12 @@ const socials = [
     icon: GithubIcon,
   },
   {
-    href: "mailto:jarioglez1999@gmail.com",
+    href: "mailto:jairoglez1999@gmail.com",
     label: "Email",
     icon: Mail,
   },
   {
-    href: "https://linkedin.com/in/", // TODO: actualizar slug LinkedIn cuando esté disponible
+    href: "https://www.linkedin.com/in/jairo-gonz%C3%A1lez-dev",
     label: "LinkedIn",
     icon: LinkedinIcon,
   },

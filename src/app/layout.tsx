@@ -75,7 +75,7 @@ const personJsonLd = {
   "@type": "Person",
   name: "Jairo González Travieso",
   url: SITE_URL,
-  email: "mailto:jarioglez1999@gmail.com",
+  email: "mailto:jairoglez1999@gmail.com",
   jobTitle: "Frontend Developer",
   description,
   address: {

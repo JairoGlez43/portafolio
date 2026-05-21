@@ -129,11 +129,11 @@ export function Contact() {
           >
             O escribe directamente a{" "}
             <a
-              href="mailto:jarioglez1999@gmail.com"
+              href="mailto:jairoglez1999@gmail.com"
               className="inline-flex items-center gap-1 text-foreground underline-offset-4 hover:underline"
             >
               <Mail className="h-3.5 w-3.5" />
-              jarioglez1999@gmail.com
+              jairoglez1999@gmail.com
             </a>
             .
           </motion.p>
