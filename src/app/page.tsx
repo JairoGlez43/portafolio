@@ -1,20 +1,20 @@
+import { Hero } from "@/components/sections/hero";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center px-6">
-      <div className="max-w-2xl text-center">
-        <p className="font-mono text-sm text-muted-foreground mb-4">
-          Hola, soy
+    <>
+      <Hero />
+      {/* Placeholder para próximas secciones (Sobre mí, Proyectos, Contacto) */}
+      <section
+        id="sobre-mi"
+        className="mx-auto max-w-3xl px-6 py-32"
+        aria-label="Sobre mí"
+      >
+        <h2 className="mb-6 text-3xl font-bold tracking-tight">Sobre mí</h2>
+        <p className="text-lg text-muted-foreground">
+          Sección en construcción.
         </p>
-        <h1 className="text-5xl sm:text-7xl font-bold tracking-tight mb-4">
-          Jairo González
-        </h1>
-        <p className="text-xl text-muted-foreground">
-          Desarrollador Frontend · React · Next.js · TypeScript
-        </p>
-        <p className="mt-8 text-sm text-muted-foreground font-mono">
-          Portafolio en construcción
-        </p>
-      </div>
-    </main>
+      </section>
+    </>
   );
 }
