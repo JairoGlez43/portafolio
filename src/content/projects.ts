@@ -298,3 +298,19 @@ export function getProjectBySlug(slug: string): Project | undefined {
 export function getCaseStudySlugs(): string[] {
   return projects.filter((p) => p.caseStudy).map((p) => p.slug);
 }
+
+/**
+ * Returns prev/next case studies relative to the given slug, looping around
+ * (cyclic). Useful for inter-case-study navigation.
+ */
+export function getCaseStudyNeighbors(slug: string): {
+  prev: Project | null;
+  next: Project | null;
+} {
+  const studies = projects.filter((p) => p.caseStudy);
+  const idx = studies.findIndex((p) => p.slug === slug);
+  if (idx === -1) return { prev: null, next: null };
+  const prev = studies[(idx - 1 + studies.length) % studies.length];
+  const next = studies[(idx + 1) % studies.length];
+  return { prev, next };
+}
