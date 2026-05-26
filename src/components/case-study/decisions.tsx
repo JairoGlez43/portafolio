@@ -5,9 +5,11 @@ import type { CaseStudyDecision } from "@/content/projects";
 
 interface DecisionsProps {
   decisions: CaseStudyDecision[];
+  label: string;
+  title: string;
 }
 
-export function CaseStudyDecisions({ decisions }: DecisionsProps) {
+export function CaseStudyDecisions({ decisions, label, title }: DecisionsProps) {
   return (
     <motion.section
       initial={{ y: 24, opacity: 0 }}
@@ -17,10 +19,10 @@ export function CaseStudyDecisions({ decisions }: DecisionsProps) {
       className="mt-20"
     >
       <p className="mb-3 font-mono text-sm text-muted-foreground">
-        <span className="text-accent">·</span> decisiones técnicas
+        <span className="text-accent">·</span> {label}
       </p>
       <h2 className="mb-10 text-3xl font-bold tracking-tight sm:text-4xl">
-        Lo que importó
+        {title}
       </h2>
 
       <ol className="space-y-10">

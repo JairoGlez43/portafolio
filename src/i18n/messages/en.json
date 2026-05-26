@@ -1,0 +1,268 @@
+{
+  "metadata": {
+    "title": "Jairo González — Frontend Developer",
+    "titleTemplate": "%s | Jairo González",
+    "description": "Frontend Developer specialized in React, Next.js, and TypeScript. I build modern, accessible, high-performance interfaces.",
+    "siteName": "Jairo González — Portfolio",
+    "ogLocale": "en_US"
+  },
+  "layout": {
+    "skipLink": "Skip to content",
+    "jobTitle": "Frontend Developer"
+  },
+  "header": {
+    "homeLabel": "Home",
+    "navLabel": "Main",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "nav": [
+      { "href": "#sobre-mi", "label": "About" },
+      { "href": "#proyectos", "label": "Projects" },
+      { "href": "#contacto", "label": "Contact" }
+    ]
+  },
+  "localeToggle": {
+    "switchToEnglish": "Switch to English",
+    "switchToSpanish": "Switch to Spanish"
+  },
+  "themeToggle": {
+    "light": "Switch to light mode",
+    "dark": "Switch to dark mode"
+  },
+  "footer": {
+    "madeWith": "Built with Next.js + Tailwind."
+  },
+  "hero": {
+    "ariaLabel": "Introduction",
+    "intro": "Hi, I'm",
+    "name": "Jairo González",
+    "role": "Frontend Developer",
+    "taglineStart": "I build accessible, fast interfaces with animations that tell a story. Specialized in",
+    "taglineAnd": "and",
+    "taglineTech": ["React", "Next.js", "TypeScript"],
+    "projectsCta": "View projects",
+    "cvCta": "Download CV",
+    "scrollHint": "scroll"
+  },
+  "projectsSection": {
+    "eyebrow": "projects",
+    "title": "Things I've built",
+    "description": "A selection of projects I've worked on over the last few years, from multi-tenant SaaS platforms to richly animated websites. Each one shows a different kind of work."
+  },
+  "about": {
+    "eyebrow": "about me",
+    "title": "How I got here",
+    "paragraphs": [
+      "I started by studying Pharmacy at the University of Havana, where I earned my degree. During those years I also completed two years of Computer Science, which I left for personal reasons — but my curiosity for programming stayed with me.",
+      "I picked it back up through self-directed learning and, over the last 2 years, I've built full web applications as a freelancer: multi-tenant SaaS platforms, tools with AI integrations, crypto dashboards, and websites with advanced animations.",
+      "Today I work from Madrid, specializing in frontend with React and Next.js, and I am available for remote or on-site projects. I care about interfaces that feel fast, accessible, and well designed."
+    ],
+    "stackLabel": "Stack I use day to day",
+    "skillGroups": [
+      { "label": "Frameworks", "items": ["React 18/19", "Next.js 14–16", "Vite"] },
+      { "label": "UI & Styling", "items": ["Tailwind CSS", "Radix UI", "shadcn/ui"] },
+      { "label": "Animation", "items": ["Framer Motion", "GSAP"] },
+      { "label": "State & Data", "items": ["Zustand", "SWR", "TanStack Query", "React Hook Form", "Zod"] },
+      { "label": "Databases", "items": ["PostgreSQL", "MongoDB", "Redis"] },
+      { "label": "Cloud & Build", "items": ["Cloudflare Workers", "Vercel", "Bun", "Turborepo", "Docker"] }
+    ]
+  },
+  "contact": {
+    "eyebrow": "contact",
+    "title": "Let's talk",
+    "description": "Have a project in mind, an opening, or just want to say hello? Write to me and I'll reply in under 24 hours.",
+    "directEmailPrefix": "Or write directly to",
+    "form": {
+      "honeypotLabel": "Company (do not fill)",
+      "nameLabel": "Name",
+      "emailLabel": "Email",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell me how I can help…",
+      "submitIdle": "Send message",
+      "submitSubmitting": "Sending…",
+      "success": "Message sent. I'll reply soon.",
+      "defaultError": "The message could not be sent.",
+      "networkError": "Network error. Please try again.",
+      "validation": {
+        "nameMin": "Minimum 2 characters",
+        "emailInvalid": "Invalid email",
+        "messageMin": "Tell me a little more (minimum 20 characters)"
+      }
+    }
+  },
+  "projectCard": {
+    "status": {
+      "live": "Live",
+      "private": "Private",
+      "archived": "Archived"
+    },
+    "caseStudyCta": "View case study",
+    "privateCta": "Private",
+    "more": "more",
+    "imageAlt": "Screenshot of {title}"
+  },
+  "caseStudy": {
+    "backToProjects": "Back to projects",
+    "badgeLabel": "case study",
+    "year": "Year",
+    "role": "Role",
+    "coverAlt": "Screenshot of {title}",
+    "sections": {
+      "challenge": { "label": "the challenge", "title": "What needed to be solved?" },
+      "solution": { "label": "the solution", "title": "How I approached it" },
+      "outcome": { "label": "outcome", "title": "What this project delivered" },
+      "decisions": { "label": "technical decisions", "title": "What mattered" },
+      "stack": { "label": "stack", "title": "Technologies used" }
+    },
+    "nav": {
+      "ariaLabel": "Case study navigation",
+      "previous": "previous",
+      "next": "next",
+      "allProjects": "View all projects"
+    },
+    "og": {
+      "alt": "Case study — Jairo González",
+      "notFound": "Not found",
+      "label": "JAIRO.GZ · CASE STUDY"
+    }
+  },
+  "notFound": {
+    "eyebrow": "error 404",
+    "title": "This page does not exist.",
+    "description": "Maybe it used to be here. Maybe it never was. Either way, let's go home.",
+    "cta": "Back home"
+  },
+  "projects": {
+    "items": [
+      {
+        "slug": "voo-platform",
+        "title": "VOO Platform",
+        "subtitle": "Multi-tenant SaaS frontend for e-commerce, bookings, and events",
+        "year": "2024 — Present",
+        "role": "Frontend Developer",
+        "status": "private",
+        "stack": ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "Radix UI", "Framer Motion", "next-intl", "Zustand", "SWR", "Cloudflare Workers"],
+        "description": "A multi-tenant SaaS platform that lets event, hospitality, and service businesses launch their own site in minutes. I built the full frontend: customer dashboard, global admin panel, public landing page, and a customizable template system serving multiple tenants from a single codebase.",
+        "highlights": [
+          "Monorepo with 3 frontend apps and 5 shared packages (UI, auth, queries, emails)",
+          "Custom domain support with dynamic tenant routing",
+          "Multi-language support with next-intl and dynamic theming configurable per business",
+          "Deployment to Cloudflare Workers via OpenNext for low global latency"
+        ],
+        "image": "/projects/voo-platform.svg",
+        "accent": "60a5fa",
+        "featured": true,
+        "caseStudy": {
+          "challenge": "Build the frontend of a multi-tenant SaaS from scratch, allowing three very different verticals (events, hospitality, and services) to offer a personalized end-user experience without duplicating code, while keeping accessibility and performance at an enterprise-product level.",
+          "solution": "I designed a Bun and Turborepo monorepo architecture with three independent applications (customer dashboard, global admin, and landing page) sharing UI, authentication, query, and email-template packages. The template system lets each tenant customize colors, typography, language, and content blocks without touching code.",
+          "decisions": [
+            { "title": "UI composition with Radix + shadcn/ui", "body": "I built an accessible component system (WAI-ARIA) reused across the 3 apps, with semantic CSS-variable tokens to support tenant theming at runtime without recompilation." },
+            { "title": "Internationalization with next-intl", "body": "I integrated next-intl with subdomain segmentation to serve different languages depending on each tenant's region, with automatic fallback and pluralization support." },
+            { "title": "Edge deployment with Cloudflare Workers", "body": "I migrated deployment to Cloudflare Workers using @opennextjs/cloudflare to achieve sub-50ms global latency, eliminate cold starts, and reduce infrastructure cost." },
+            { "title": "End-to-end typing", "body": "I shared API-generated types (TypeBox/Prisma) across the frontend apps, eliminating contract errors and giving full autocomplete for every call." }
+          ],
+          "outcome": "The product now supports multiple tenants in production with load times under 1s and Lighthouse 90+ on mobile. The modular architecture makes it possible to add new verticals in days, not weeks."
+        }
+      },
+      {
+        "slug": "ai-analyzer",
+        "title": "AI Analyzer",
+        "subtitle": "AI-generated content detection and humanization with a rich editor",
+        "year": "2024",
+        "role": "Frontend Developer",
+        "status": "live",
+        "stack": ["Next.js 14", "TypeScript", "Tailwind CSS", "Radix UI", "SWR", "React Hook Form", "Zod", "Stripe", "Claude API", "Gemini API"],
+        "description": "A SaaS platform that analyzes text to detect AI-generated content and offers automatic humanization. It integrates 3 different models (Anthropic Claude, Google Gemini, Winston AI) in a unified interface with a rich editor, credit system, and paid subscriptions.",
+        "highlights": [
+          "Rich text editor (Novel/TipTap) with code highlighting and before/after comparison",
+          "Integration of 3 AI providers with a unified UI and runtime model selector",
+          "Subscription system with Stripe (checkout, webhook, customer portal)",
+          "Results visualization with interactive charts and PDF export"
+        ],
+        "image": "/projects/ai-analyzer.svg",
+        "accent": "a78bfa",
+        "featured": true,
+        "caseStudy": {
+          "challenge": "Design a user experience that made the output of three different AI models understandable and actionable for non-technical users, while keeping response times feeling fast despite the inherent latency of LLM calls.",
+          "solution": "I built an interface centered on a rich editor as the main surface, presenting analysis results as interactive visualizations instead of raw output. The integration with Vercel AI SDK enables response streaming, giving users immediate feedback.",
+          "decisions": [
+            { "title": "Streaming with Vercel AI SDK", "body": "I used the AI SDK to stream Claude/Gemini responses directly into the editor, removing the feeling of waiting and showing humanized content as it is generated." },
+            { "title": "Editor with Novel + TipTap extensions", "body": "I customized Novel with code highlighting extensions, paragraph-level AI-probability markers, and visual before/after comparison while preserving a familiar editor flow." },
+            { "title": "Stripe + credit system", "body": "I implemented checkout, webhooks, and the customer portal with Stripe, plus a credit system that deducts tokens based on model and text length, with clear visual limits in the UI." },
+            { "title": "Validation with Zod + React Hook Form", "body": "All user input (prompts, configuration, payment data) is validated on the client with Zod and React Hook Form, returning accessible inline errors before credits are spent." }
+          ],
+          "outcome": "The interface turned a technical product into something usable for content creators without an AI background. The architecture makes adding new AI providers possible with minimal frontend changes."
+        }
+      },
+      {
+        "slug": "cubanparty",
+        "title": "CubanParty",
+        "subtitle": "Events platform with interactive animations",
+        "year": "2024",
+        "role": "Frontend Developer",
+        "status": "live",
+        "stack": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS v4", "Framer Motion", "tsparticles", "Radix UI", "Appwrite", "AWS S3"],
+        "description": "An event promotion and management platform with a strong visual layer: interactive particle animations, smooth page transitions, and a content-management system backed by Appwrite. All media is served from AWS S3 with intelligent preloading.",
+        "highlights": [
+          "Particle animations with tsparticles synchronized to scroll",
+          "Smooth page transitions with Framer Motion (layout animations + AnimatePresence)",
+          "Serverless backend with Appwrite (auth, database, storage)",
+          "Media optimization with AWS S3 + viewport-based preloading"
+        ],
+        "image": "/projects/cubanparty.svg",
+        "accent": "f472b6",
+        "featured": true,
+        "caseStudy": {
+          "challenge": "Create a memorable visual experience for an events platform without sacrificing performance on mobile devices, where most of the audience visits. The challenge was integrating complex particle animations with real-time data without frame drops.",
+          "solution": "I combined tsparticles for background effects (with lightweight presets on mobile) and Framer Motion for UI transitions, clearly separating decorative animation from interactive motion. Data management with Appwrite + SWR keeps the app reactive without a custom backend.",
+          "decisions": [
+            { "title": "Adaptive particle system", "body": "I implemented device capability detection to reduce particles and disable interactivity on mobile, keeping a consistent 60fps even on mid-range devices." },
+            { "title": "Appwrite as BaaS", "body": "I chose Appwrite over Firebase for its relational data model, cacheable REST API, and SDK that integrates cleanly with SWR for real-time data." },
+            { "title": "Layout animations with Framer Motion", "body": "I used layoutId for shared transitions between event lists and detail views, creating a cinematic feel without a performance penalty." },
+            { "title": "AWS S3 + on-the-fly transformations", "body": "I combined S3 with image transformations at the edge to serve modern formats (AVIF/WebP) based on the user's browser, reducing average image weight by 70%." }
+          ],
+          "outcome": "The platform achieved Lighthouse Performance 90+ on mobile despite the animations, and became a portfolio piece showing that performance and visual design can work together."
+        }
+      },
+      {
+        "slug": "memecoin",
+        "title": "Memecoin Dashboard",
+        "subtitle": "Token trading interface with real-time visualization",
+        "year": "2024",
+        "role": "Frontend Developer",
+        "status": "private",
+        "stack": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS v4", "Radix UI", "React Hook Form", "date-fns"],
+        "description": "Dashboard for managing and visualizing crypto token transactions. Complex forms with real-time validation, price evolution charts, and responsive design optimized for long sessions on large screens.",
+        "highlights": [
+          "Multi-step forms with React Hook Form and instant validation",
+          "Real-time data visualization with optimistic updates",
+          "Responsive design optimized for long desktop sessions",
+          "Contextual notification system with Radix Toast"
+        ],
+        "image": "/projects/memecoin.svg",
+        "accent": "fbbf24",
+        "featured": true
+      },
+      {
+        "slug": "mojitos-bar",
+        "title": "Mojitos Bar",
+        "subtitle": "Cocktail website with animated GSAP storytelling",
+        "year": "2025",
+        "role": "Frontend Developer",
+        "status": "live",
+        "stack": ["React", "TypeScript", "Vite", "Tailwind CSS", "GSAP"],
+        "description": "A one-page cocktail bar website built as a showcase for advanced GSAP animations. Every section is choreographed with timelines and ScrollTriggers, demonstrating control over micro-interactions and visual storytelling.",
+        "highlights": [
+          "GSAP timelines with ScrollTrigger in every section",
+          "Character-by-character text reveals synchronized with scroll",
+          "Multi-layer parallax and complex animation scrubbing",
+          "Responsive design that keeps its fluidity on mobile"
+        ],
+        "image": "/projects/mojitos-bar.svg",
+        "accent": "34d399",
+        "links": [{ "label": "Code on GitHub", "href": "https://github.com/JairoGlez43/Mojitos-Bar" }],
+        "featured": true
+      }
+    ]
+  }
+}

@@ -3,7 +3,13 @@
 import { motion } from "framer-motion";
 import type { Project } from "@/content/projects";
 
-export function CaseStudyCover({ project }: { project: Project }) {
+export function CaseStudyCover({
+  project,
+  alt,
+}: {
+  project: Project;
+  alt: string;
+}) {
   return (
     <motion.div
       initial={{ y: 40, opacity: 0 }}
@@ -18,7 +24,7 @@ export function CaseStudyCover({ project }: { project: Project }) {
         <div className="relative aspect-[16/10]">
           <img
             src={project.image}
-            alt={`Captura del proyecto ${project.title}`}
+            alt={alt.replace("{title}", project.title)}
             className="h-full w-full object-cover"
             loading="eager"
             decoding="async"

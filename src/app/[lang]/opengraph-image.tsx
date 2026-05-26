@@ -1,10 +1,24 @@
 import { ImageResponse } from "next/og";
+import { defaultLocale, isLocale, locales } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
 
-export const alt = "Jairo González — Desarrollador Frontend";
+export const alt = "Jairo González — Frontend Developer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default async function Image() {
+export async function generateStaticParams() {
+  return locales.map((lang) => ({ lang }));
+}
+
+export default async function Image({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const locale = isLocale(lang) ? lang : defaultLocale;
+  const dictionary = await getDictionary(locale);
+
   return new ImageResponse(
     (
       <div
@@ -41,7 +55,7 @@ export default async function Image() {
               fontFamily: "monospace",
             }}
           >
-            Hola, soy
+            {dictionary.hero.intro}
           </div>
           <div
             style={{
@@ -51,7 +65,7 @@ export default async function Image() {
               letterSpacing: -3,
             }}
           >
-            Jairo González
+            {dictionary.hero.name}
           </div>
           <div
             style={{
@@ -60,7 +74,7 @@ export default async function Image() {
               fontWeight: 500,
             }}
           >
-            Desarrollador Frontend
+            {dictionary.hero.role}
           </div>
         </div>
 
@@ -74,7 +88,7 @@ export default async function Image() {
             fontFamily: "monospace",
           }}
         >
-          <div>React · Next.js · TypeScript</div>
+          <div>{dictionary.hero.taglineTech.join(" · ")}</div>
           <div>Madrid, ES</div>
         </div>
       </div>

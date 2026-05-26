@@ -1,24 +1,35 @@
+"use client";
+
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
+import { defaultLocale, isLocale } from "@/i18n/config";
+import en from "@/i18n/messages/en.json";
+import es from "@/i18n/messages/es.json";
 
 export default function NotFound() {
+  const params = useParams<{ lang?: string }>();
+  const locale = params.lang && isLocale(params.lang) ? params.lang : defaultLocale;
+  const dictionary = { en, es }[locale].notFound;
+
   return (
     <section className="flex min-h-[calc(100vh-4rem)] items-center justify-center px-6">
       <div className="max-w-md text-center">
-        <p className="font-mono text-sm text-muted-foreground">error 404</p>
+        <p className="font-mono text-sm text-muted-foreground">
+          {dictionary.eyebrow}
+        </p>
         <h1 className="mt-4 text-5xl font-bold tracking-tight sm:text-6xl">
-          Esta página no existe.
+          {dictionary.title}
         </h1>
         <p className="mt-6 text-lg text-muted-foreground">
-          Igual estaba aquí antes. O igual nunca lo estuvo. En cualquier caso,
-          volvamos a casa.
+          {dictionary.description}
         </p>
         <Link
-          href="/"
+          href={`/${locale}`}
           className="mt-10 inline-flex items-center gap-2 rounded-md bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-transform hover:-translate-y-0.5"
         >
           <ArrowLeft className="h-4 w-4" />
-          Volver al inicio
+          {dictionary.cta}
         </Link>
       </div>
     </section>

@@ -1,33 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const skillGroups = [
-  {
-    label: "Frameworks",
-    items: ["React 18/19", "Next.js 14–16", "Vite"],
-  },
-  {
-    label: "UI & Estilos",
-    items: ["Tailwind CSS", "Radix UI", "shadcn/ui"],
-  },
-  {
-    label: "Animaciones",
-    items: ["Framer Motion", "GSAP"],
-  },
-  {
-    label: "Estado & Datos",
-    items: ["Zustand", "SWR", "TanStack Query", "React Hook Form", "Zod"],
-  },
-  {
-    label: "Bases de datos",
-    items: ["PostgreSQL", "MongoDB", "Redis"],
-  },
-  {
-    label: "Cloud & Build",
-    items: ["Cloudflare Workers", "Vercel", "Bun", "Turborepo", "Docker"],
-  },
-];
+import type { Dictionary } from "@/i18n/dictionaries";
 
 const fadeUp = {
   hidden: { y: 24, opacity: 0 },
@@ -36,7 +10,7 @@ const fadeUp = {
 
 const transition = { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const };
 
-export function About() {
+export function About({ dictionary }: { dictionary: Dictionary["about"] }) {
   return (
     <section
       id="sobre-mi"
@@ -56,7 +30,7 @@ export function About() {
             transition={transition}
             className="mb-4 font-mono text-sm text-muted-foreground"
           >
-            <span className="text-accent">·</span> sobre mí
+            <span className="text-accent">·</span> {dictionary.eyebrow}
           </motion.p>
           <motion.h2
             variants={fadeUp}
@@ -64,29 +38,15 @@ export function About() {
             id="sobre-mi-titulo"
             className="mb-8 text-4xl font-bold tracking-tight sm:text-5xl"
           >
-            Cómo llegué hasta aquí
+            {dictionary.title}
           </motion.h2>
 
           <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
-            <motion.p variants={fadeUp} transition={transition}>
-              Empecé estudiando Farmacia en la Universidad de La Habana, donde
-              me licencié. Durante esos años cursé también dos años de Ciencias
-              de la Computación que abandoné por motivos personales — pero la
-              curiosidad por la programación se quedó.
-            </motion.p>
-            <motion.p variants={fadeUp} transition={transition}>
-              Lo retomé de forma autodidacta y, en los últimos{" "}
-              <span className="text-foreground">2 años</span>, he construido
-              aplicaciones web completas como freelance: plataformas SaaS
-              multi-tenant, herramientas con integraciones de IA, dashboards
-              de cripto y sitios con animaciones avanzadas.
-            </motion.p>
-            <motion.p variants={fadeUp} transition={transition}>
-              Hoy trabajo desde <span className="text-foreground">Madrid</span>,
-              especializado en frontend con React y Next.js, con disponibilidad
-              para proyectos remotos o presenciales. Me importan las
-              interfaces que se sienten rápidas, accesibles y bien diseñadas.
-            </motion.p>
+            {dictionary.paragraphs.map((paragraph) => (
+              <motion.p key={paragraph} variants={fadeUp} transition={transition}>
+                {paragraph}
+              </motion.p>
+            ))}
           </div>
         </motion.div>
 
@@ -99,10 +59,10 @@ export function About() {
           className="rounded-xl border border-border bg-muted/20 p-6 sm:p-8"
         >
           <p className="mb-6 font-mono text-sm text-muted-foreground">
-            Stack que uso a diario
+            {dictionary.stackLabel}
           </p>
           <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {skillGroups.map((group) => (
+            {dictionary.skillGroups.map((group) => (
               <li key={group.label}>
                 <p className="mb-2 text-sm font-semibold tracking-tight">
                   {group.label}

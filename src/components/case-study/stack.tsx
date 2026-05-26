@@ -2,7 +2,15 @@
 
 import { motion } from "framer-motion";
 
-export function CaseStudyStack({ stack }: { stack: string[] }) {
+export function CaseStudyStack({
+  stack,
+  label,
+  title,
+}: {
+  stack: string[];
+  label: string;
+  title: string;
+}) {
   return (
     <motion.section
       initial={{ y: 24, opacity: 0 }}
@@ -12,10 +20,10 @@ export function CaseStudyStack({ stack }: { stack: string[] }) {
       className="mt-20"
     >
       <p className="mb-3 font-mono text-sm text-muted-foreground">
-        <span className="text-accent">·</span> stack
+        <span className="text-accent">·</span> {label}
       </p>
       <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl">
-        Tecnologías utilizadas
+        {title}
       </h2>
       <ul className="flex flex-wrap gap-2">
         {stack.map((tech) => (

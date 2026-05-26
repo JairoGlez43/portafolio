@@ -6,10 +6,11 @@ import { ArrowDown, Download } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import type { Dictionary } from "@/i18n/dictionaries";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-export function Hero() {
+export function Hero({ dictionary }: { dictionary: Dictionary["hero"] }) {
   const containerRef = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -90,7 +91,7 @@ export function Hero() {
     { scope: containerRef },
   );
 
-  const name = "Jairo González";
+  const name = dictionary.name;
   // Split into characters preserving spaces
   const chars = name.split("");
 
@@ -98,7 +99,7 @@ export function Hero() {
     <section
       ref={containerRef}
       className="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden px-6"
-      aria-label="Presentación"
+      aria-label={dictionary.ariaLabel}
     >
       {/* Subtle radial gradient backdrop */}
       <div
@@ -111,7 +112,7 @@ export function Hero() {
           data-anim="label"
           className="mb-6 font-mono text-sm text-muted-foreground"
         >
-          Hola, soy
+          {dictionary.intro}
         </p>
 
         <h1
@@ -134,18 +135,18 @@ export function Hero() {
           data-anim="role"
           className="mb-6 text-2xl font-medium text-muted-foreground sm:text-3xl"
         >
-          Desarrollador Frontend
+          {dictionary.role}
         </p>
 
         <p
           data-anim="tagline"
           className="mb-10 max-w-2xl text-lg text-muted-foreground sm:text-xl"
         >
-          Construyo interfaces accesibles, rápidas y con animaciones que cuentan
-          historias. Especializado en{" "}
-          <span className="text-foreground">React</span>,{" "}
-          <span className="text-foreground">Next.js</span> y{" "}
-          <span className="text-foreground">TypeScript</span>.
+          {dictionary.taglineStart}{" "}
+          <span className="text-foreground">{dictionary.taglineTech[0]}</span>,{" "}
+          <span className="text-foreground">{dictionary.taglineTech[1]}</span>{" "}
+          {dictionary.taglineAnd}{" "}
+          <span className="text-foreground">{dictionary.taglineTech[2]}</span>.
         </p>
 
         <div className="flex flex-wrap items-center gap-3">
@@ -154,7 +155,7 @@ export function Hero() {
             href="#proyectos"
             className="group inline-flex items-center gap-2 rounded-md bg-foreground px-5 py-3 text-sm font-medium text-background transition-transform hover:-translate-y-0.5"
           >
-            Ver proyectos
+            {dictionary.projectsCta}
             <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
           </Link>
           <a
@@ -163,7 +164,7 @@ export function Hero() {
             download
             className="group inline-flex items-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium transition-colors hover:bg-muted"
           >
-            Descargar CV
+            {dictionary.cvCta}
             <Download className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
           </a>
         </div>
@@ -175,7 +176,7 @@ export function Hero() {
         aria-hidden="true"
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 font-mono text-xs text-muted-foreground"
       >
-        <span>scroll</span>
+        <span>{dictionary.scrollHint}</span>
         <span className="h-8 w-px animate-pulse bg-border" />
       </div>
     </section>

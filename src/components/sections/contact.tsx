@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
-import { contactSchema, type ContactInput } from "@/lib/contact-schema";
+import { createContactSchema, type ContactInput } from "@/lib/contact-schema";
 import { cn } from "@/lib/utils";
+import type { Dictionary } from "@/i18n/dictionaries";
 
 type Status =
   | { kind: "idle" }
@@ -26,7 +27,7 @@ const fadeUp = {
 
 const transition = { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const };
 
-export function Contact() {
+export function Contact({ dictionary }: { dictionary: Dictionary["contact"] }) {
   const [form, setForm] = useState<ContactInput>(initialForm);
   const [errors, setErrors] = useState<
     Partial<Record<keyof ContactInput, string>>
@@ -46,6 +47,7 @@ export function Contact() {
     e.preventDefault();
     setErrors({});
 
+    const contactSchema = createContactSchema(dictionary.form.validation);
     const parsed = contactSchema.safeParse(form);
     if (!parsed.success) {
       const fieldErrors = parsed.error.flatten().fieldErrors;
@@ -70,7 +72,7 @@ export function Contact() {
       if (!res.ok || !data.ok) {
         setStatus({
           kind: "error",
-          message: data.error ?? "No se pudo enviar el mensaje.",
+          message: data.error ?? dictionary.form.defaultError,
         });
         return;
       }
@@ -80,7 +82,7 @@ export function Contact() {
     } catch {
       setStatus({
         kind: "error",
-        message: "Error de red. Intenta de nuevo.",
+        message: dictionary.form.networkError,
       });
     }
   }
@@ -104,7 +106,7 @@ export function Contact() {
             transition={transition}
             className="mb-4 font-mono text-sm text-muted-foreground"
           >
-            <span className="text-accent">·</span> contacto
+            <span className="text-accent">·</span> {dictionary.eyebrow}
           </motion.p>
           <motion.h2
             variants={fadeUp}
@@ -112,22 +114,21 @@ export function Contact() {
             id="contacto-titulo"
             className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl"
           >
-            Hablemos
+            {dictionary.title}
           </motion.h2>
           <motion.p
             variants={fadeUp}
             transition={transition}
             className="text-lg text-muted-foreground"
           >
-            ¿Tienes un proyecto en mente, una vacante o simplemente quieres
-            saludar? Escríbeme y te respondo en menos de 24h.
+            {dictionary.description}
           </motion.p>
           <motion.p
             variants={fadeUp}
             transition={transition}
             className="mt-4 text-sm text-muted-foreground"
           >
-            O escribe directamente a{" "}
+            {dictionary.directEmailPrefix}{" "}
             <a
               href="mailto:jairoglez1999@gmail.com"
               className="inline-flex items-center gap-1 text-foreground underline-offset-4 hover:underline"
@@ -150,7 +151,7 @@ export function Contact() {
         >
           {/* Honeypot — hidden from users, traps bots */}
           <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
-            <label htmlFor="company">Empresa (no rellenar)</label>
+            <label htmlFor="company">{dictionary.form.honeypotLabel}</label>
             <input
               type="text"
               id="company"
@@ -164,7 +165,7 @@ export function Contact() {
 
           <Field
             id="name"
-            label="Nombre"
+            label={dictionary.form.nameLabel}
             value={form.name}
             error={errors.name}
             onChange={handleChange("name")}
@@ -174,7 +175,7 @@ export function Contact() {
 
           <Field
             id="email"
-            label="Email"
+            label={dictionary.form.emailLabel}
             type="email"
             value={form.email}
             error={errors.email}
@@ -185,18 +186,18 @@ export function Contact() {
 
           <FieldTextarea
             id="message"
-            label="Mensaje"
+            label={dictionary.form.messageLabel}
             value={form.message}
             error={errors.message}
             onChange={handleChange("message")}
             disabled={status.kind === "submitting"}
             rows={6}
-            placeholder="Cuéntame en qué puedo ayudarte…"
+            placeholder={dictionary.form.messagePlaceholder}
           />
 
           <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
-            <SubmitButton status={status} />
-            <StatusMessage status={status} />
+            <SubmitButton status={status} dictionary={dictionary.form} />
+            <StatusMessage status={status} dictionary={dictionary.form} />
           </div>
         </motion.form>
       </div>
@@ -309,7 +310,13 @@ function FieldTextarea({
   );
 }
 
-function SubmitButton({ status }: { status: Status }) {
+function SubmitButton({
+  status,
+  dictionary,
+}: {
+  status: Status;
+  dictionary: Dictionary["contact"]["form"];
+}) {
   const submitting = status.kind === "submitting";
   return (
     <button
@@ -320,11 +327,11 @@ function SubmitButton({ status }: { status: Status }) {
       {submitting ? (
         <>
           <Loader2 className="h-4 w-4 animate-spin" />
-          Enviando…
+          {dictionary.submitSubmitting}
         </>
       ) : (
         <>
-          Enviar mensaje
+          {dictionary.submitIdle}
           <Send className="h-4 w-4" />
         </>
       )}
@@ -332,7 +339,13 @@ function SubmitButton({ status }: { status: Status }) {
   );
 }
 
-function StatusMessage({ status }: { status: Status }) {
+function StatusMessage({
+  status,
+  dictionary,
+}: {
+  status: Status;
+  dictionary: Dictionary["contact"]["form"];
+}) {
   if (status.kind === "success") {
     return (
       <p
@@ -340,7 +353,7 @@ function StatusMessage({ status }: { status: Status }) {
         className="inline-flex items-center gap-1.5 text-sm text-emerald-400"
       >
         <CheckCircle2 className="h-4 w-4" />
-        Mensaje enviado. Te respondo pronto.
+        {dictionary.success}
       </p>
     );
   }

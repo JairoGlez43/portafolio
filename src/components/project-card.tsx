@@ -5,18 +5,24 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Lock } from "lucide-react";
 import type { Project } from "@/content/projects";
 import { cn } from "@/lib/utils";
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries";
 
 const STACK_PREVIEW_COUNT = 5;
 
-function getCardLink(project: Project): {
+function getCardLink(
+  project: Project,
+  locale: Locale,
+  dictionary: Dictionary["projectCard"],
+): {
   href: string | null;
   label: string;
   external: boolean;
 } {
   if (project.caseStudy) {
     return {
-      href: `/proyectos/${project.slug}`,
-      label: "Ver caso de estudio",
+      href: `/${locale}/proyectos/${project.slug}`,
+      label: dictionary.caseStudyCta,
       external: false,
     };
   }
@@ -27,14 +33,20 @@ function getCardLink(project: Project): {
       external: true,
     };
   }
-  return { href: null, label: "Privado", external: false };
+  return { href: null, label: dictionary.privateCta, external: false };
 }
 
-function StatusBadge({ status }: { status: Project["status"] }) {
+function StatusBadge({
+  status,
+  labels,
+}: {
+  status: Project["status"];
+  labels: Dictionary["projectCard"]["status"];
+}) {
   const config = {
-    live: { label: "En vivo", color: "bg-emerald-500" },
-    private: { label: "Privado", color: "bg-zinc-500" },
-    archived: { label: "Archivado", color: "bg-amber-500" },
+    live: { label: labels.live, color: "bg-emerald-500" },
+    private: { label: labels.private, color: "bg-zinc-500" },
+    archived: { label: labels.archived, color: "bg-amber-500" },
   }[status];
 
   return (
@@ -46,11 +58,13 @@ function StatusBadge({ status }: { status: Project["status"] }) {
 }
 
 interface ProjectCardProps {
+  locale: Locale;
   project: Project;
+  dictionary: Dictionary["projectCard"];
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
-  const { href, label, external } = getCardLink(project);
+export function ProjectCard({ locale, project, dictionary }: ProjectCardProps) {
+  const { href, label, external } = getCardLink(project, locale, dictionary);
   const isLinked = href !== null;
 
   const cardContent = (
@@ -68,14 +82,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <div className="relative aspect-[16/10] overflow-hidden">
         <img
           src={project.image}
-          alt={`Captura del proyecto ${project.title}`}
+          alt={dictionary.imageAlt.replace("{title}", project.title)}
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
           loading="lazy"
           decoding="async"
         />
         {/* Top-right status */}
         <div className="absolute right-3 top-3">
-          <StatusBadge status={project.status} />
+          <StatusBadge status={project.status} labels={dictionary.status} />
         </div>
         {/* Top-left year */}
         <div className="absolute left-3 top-3 rounded-full border border-border bg-background/80 px-2.5 py-1 font-mono text-xs text-muted-foreground backdrop-blur-sm">
@@ -112,7 +126,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           ))}
           {project.stack.length > STACK_PREVIEW_COUNT && (
             <li className="px-2 py-0.5 font-mono text-xs text-muted-foreground">
-              +{project.stack.length - STACK_PREVIEW_COUNT} más
+              +{project.stack.length - STACK_PREVIEW_COUNT} {dictionary.more}
             </li>
           )}
         </ul>

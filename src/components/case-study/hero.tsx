@@ -4,12 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import type { Project } from "@/content/projects";
-
-const STATUS_LABEL: Record<Project["status"], string> = {
-  live: "En vivo",
-  private: "Privado",
-  archived: "Archivado",
-};
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries";
 
 const STATUS_DOT: Record<Project["status"], string> = {
   live: "bg-emerald-500",
@@ -24,7 +20,17 @@ const fadeUp = {
 
 const transition = { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const };
 
-export function CaseStudyHero({ project }: { project: Project }) {
+export function CaseStudyHero({
+  locale,
+  project,
+  dictionary,
+  statusLabels,
+}: {
+  locale: Locale;
+  project: Project;
+  dictionary: Dictionary["caseStudy"];
+  statusLabels: Dictionary["projectCard"]["status"];
+}) {
   return (
     <motion.header
       initial="hidden"
@@ -34,11 +40,11 @@ export function CaseStudyHero({ project }: { project: Project }) {
     >
       <motion.div variants={fadeUp} transition={transition}>
         <Link
-          href="/#proyectos"
+          href={`/${locale}#proyectos`}
           className="inline-flex items-center gap-1.5 font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeft className="h-3.5 w-3.5" />
-          Volver a proyectos
+          {dictionary.backToProjects}
         </Link>
       </motion.div>
 
@@ -50,7 +56,7 @@ export function CaseStudyHero({ project }: { project: Project }) {
         <span
           className={`h-1.5 w-1.5 rounded-full ${STATUS_DOT[project.status]}`}
         />
-        case study · {STATUS_LABEL[project.status].toLowerCase()}
+        {dictionary.badgeLabel} · {statusLabels[project.status].toLowerCase()}
       </motion.div>
 
       <motion.h1
@@ -75,11 +81,15 @@ export function CaseStudyHero({ project }: { project: Project }) {
         className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-border pt-6 text-sm"
       >
         <div>
-          <p className="font-mono text-xs text-muted-foreground">Año</p>
+          <p className="font-mono text-xs text-muted-foreground">
+            {dictionary.year}
+          </p>
           <p className="mt-1 font-medium">{project.year}</p>
         </div>
         <div>
-          <p className="font-mono text-xs text-muted-foreground">Rol</p>
+          <p className="font-mono text-xs text-muted-foreground">
+            {dictionary.role}
+          </p>
           <p className="mt-1 font-medium">{project.role}</p>
         </div>
         {project.links && project.links.length > 0 && (

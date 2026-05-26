@@ -1,27 +1,40 @@
 import { ImageResponse } from "next/og";
-import { getCaseStudySlugs, getProjectBySlug } from "@/content/projects";
+import {
+  getCaseStudySlugs,
+  getProjectBySlug,
+  type Project,
+} from "@/content/projects";
+import { defaultLocale, isLocale, locales } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
 
 export const alt = "Case study — Jairo González";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export async function generateStaticParams() {
-  return getCaseStudySlugs().map((slug) => ({ slug }));
+  const dictionary = await getDictionary(defaultLocale);
+  const projects = dictionary.projects.items as Project[];
+  const slugs = getCaseStudySlugs(projects);
+
+  return locales.flatMap((lang) => slugs.map((slug) => ({ lang, slug })));
 }
 
 export default async function Image({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ lang: string; slug: string }>;
 }) {
-  const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const { lang, slug } = await params;
+  const locale = isLocale(lang) ? lang : defaultLocale;
+  const dictionary = await getDictionary(locale);
+  const projects = dictionary.projects.items as Project[];
+  const project = getProjectBySlug(projects, slug);
 
   if (!project) {
     return new ImageResponse(
       (
         <div style={{ fontSize: 48, color: "white", background: "#0a0a0a" }}>
-          Not found
+          {dictionary.caseStudy.og.notFound}
         </div>
       ),
       { ...size },
@@ -56,7 +69,7 @@ export default async function Image({
             letterSpacing: 4,
           }}
         >
-          <div style={{ display: "flex" }}>JAIRO.GZ · CASE STUDY</div>
+          <div style={{ display: "flex" }}>{dictionary.caseStudy.og.label}</div>
           <div style={{ display: "flex" }}>{project.year}</div>
         </div>
 

@@ -3,9 +3,24 @@
 import { motion } from "framer-motion";
 import { ProjectCard } from "@/components/project-card";
 import { getFeaturedProjects } from "@/content/projects";
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries";
+import type { Project } from "@/content/projects";
 
-export function Projects() {
-  const featured = getFeaturedProjects();
+interface ProjectsProps {
+  locale: Locale;
+  dictionary: Dictionary["projectsSection"];
+  cardDictionary: Dictionary["projectCard"];
+  projects: Project[];
+}
+
+export function Projects({
+  locale,
+  dictionary,
+  cardDictionary,
+  projects,
+}: ProjectsProps) {
+  const featured = getFeaturedProjects(projects);
 
   return (
     <section
@@ -23,18 +38,16 @@ export function Projects() {
           className="mb-14 max-w-3xl"
         >
           <p className="mb-4 font-mono text-sm text-muted-foreground">
-            <span className="text-accent">·</span> proyectos
+            <span className="text-accent">·</span> {dictionary.eyebrow}
           </p>
           <h2
             id="proyectos-titulo"
             className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl"
           >
-            Cosas que he construido
+            {dictionary.title}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Una selección de los proyectos en los que he trabajado en los
-            últimos años, desde plataformas SaaS multi-tenant hasta sitios
-            con animaciones ricas. Cada uno enseña algo distinto.
+            {dictionary.description}
           </p>
         </motion.div>
 
@@ -51,7 +64,11 @@ export function Projects() {
         >
           {featured.map((project) => (
             <li key={project.slug} className="list-none">
-              <ProjectCard project={project} />
+              <ProjectCard
+                locale={locale}
+                project={project}
+                dictionary={cardDictionary}
+              />
             </li>
           ))}
         </motion.ul>
