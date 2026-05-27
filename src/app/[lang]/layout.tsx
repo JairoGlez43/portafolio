@@ -1,29 +1,15 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import Script from "next/script";
-import { Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
-import { ThemeProvider } from "@/components/theme-provider";
-import { MotionConfigProvider } from "@/components/motion-config-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { SkipLink } from "@/components/skip-link";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale, locales } from "@/i18n/config";
-import "../globals.css";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
   "https://jairogonzalez.vercel.app";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export async function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
@@ -82,13 +68,6 @@ export async function generateMetadata({
   };
 }
 
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
-  ],
-};
-
 export default async function RootLayout({
   children,
   params,
@@ -122,40 +101,24 @@ export default async function RootLayout({
   };
 
   return (
-    <html
-      lang={lang}
-      data-scroll-behavior="smooth"
-      suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <MotionConfigProvider>
-            <SkipLink label={dictionary.layout.skipLink} />
-            <Header
-              locale={lang}
-              dictionary={dictionary.header}
-              localeLabels={dictionary.localeToggle}
-              themeLabels={dictionary.themeToggle}
-            />
-            <main id="contenido-principal" className="flex-1">
-              {children}
-            </main>
-            <Footer madeWith={dictionary.footer.madeWith} />
-          </MotionConfigProvider>
-        </ThemeProvider>
-        <Script
-          id="person-json-ld"
-          type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
-        />
-      </body>
-    </html>
+    <>
+      <SkipLink label={dictionary.layout.skipLink} />
+      <Header
+        locale={lang}
+        dictionary={dictionary.header}
+        localeLabels={dictionary.localeToggle}
+        themeLabels={dictionary.themeToggle}
+      />
+      <main id="contenido-principal" className="flex-1">
+        {children}
+      </main>
+      <Footer madeWith={dictionary.footer.madeWith} />
+      <Script
+        id={`person-json-ld-${lang}`}
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+    </>
   );
 }

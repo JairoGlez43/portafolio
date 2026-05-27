@@ -38,7 +38,7 @@ export function Projects({
           className="mb-14 max-w-3xl"
         >
           <p className="mb-4 font-mono text-sm text-muted-foreground">
-            <span className="text-accent">·</span> {dictionary.eyebrow}
+            <span className="text-accent text-base">·</span> {dictionary.eyebrow}
           </p>
           <h2
             id="proyectos-titulo"

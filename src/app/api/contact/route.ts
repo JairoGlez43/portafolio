@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { contactSchema } from "@/lib/contact-schema";
 
-const TO_EMAIL = "jairoglez1999@gmail.com";
+const TO_EMAIL = "jairo.front.dev@gmail.com";
 const FROM_EMAIL =
   process.env.CONTACT_FROM_EMAIL ?? "Portafolio <onboarding@resend.dev>";
 

@@ -30,7 +30,7 @@ export function About({ dictionary }: { dictionary: Dictionary["about"] }) {
             transition={transition}
             className="mb-4 font-mono text-sm text-muted-foreground"
           >
-            <span className="text-accent">·</span> {dictionary.eyebrow}
+            <span className="text-accent text-base">·</span> {dictionary.eyebrow}
           </motion.p>
           <motion.h2
             variants={fadeUp}

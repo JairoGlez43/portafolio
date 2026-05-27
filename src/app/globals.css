@@ -46,6 +46,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+[data-anim="label"],
+[data-anim="name-char"],
+[data-anim="role"],
+[data-anim="tagline"],
+[data-anim="cta"],
+[data-anim="scroll-hint"] {
+  visibility: hidden;
+}
+
 ::selection {
   background: var(--accent);
   color: var(--accent-foreground);

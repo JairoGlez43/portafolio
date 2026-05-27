@@ -106,7 +106,7 @@ export function Contact({ dictionary }: { dictionary: Dictionary["contact"] }) {
             transition={transition}
             className="mb-4 font-mono text-sm text-muted-foreground"
           >
-            <span className="text-accent">·</span> {dictionary.eyebrow}
+            <span className="text-accent text-base">·</span> {dictionary.eyebrow}
           </motion.p>
           <motion.h2
             variants={fadeUp}
@@ -130,11 +130,11 @@ export function Contact({ dictionary }: { dictionary: Dictionary["contact"] }) {
           >
             {dictionary.directEmailPrefix}{" "}
             <a
-              href="mailto:jairoglez1999@gmail.com"
+              href="mailto:jairo.front.dev@gmail.com"
               className="inline-flex items-center gap-1 text-foreground underline-offset-4 hover:underline"
             >
               <Mail className="h-3.5 w-3.5" />
-              jairoglez1999@gmail.com
+              jairo.front.dev@gmail.com
             </a>
             .
           </motion.p>

@@ -20,7 +20,7 @@ export function CaseStudyStack({
       className="mt-20"
     >
       <p className="mb-3 font-mono text-sm text-muted-foreground">
-        <span className="text-accent">·</span> {label}
+        <span className="text-accent text-base">·</span> {label}
       </p>
       <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl">
         {title}
