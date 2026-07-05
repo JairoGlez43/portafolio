@@ -42,6 +42,8 @@
     "taglineTech": ["React", "Next.js", "TypeScript"],
     "projectsCta": "Ver proyectos",
     "cvCta": "Descargar CV",
+    "cvHref": "/cv-jairo-gonzalez-es.pdf",
+    "cvDownload": "cv-jairo-gonzalez-es.pdf",
     "scrollHint": "scroll"
   },
   "projectsSection": {
@@ -54,17 +56,14 @@
     "title": "Cómo llegué hasta aquí",
     "paragraphs": [
       "Empecé estudiando Farmacia en la Universidad de La Habana, donde me licencié. Durante esos años cursé también el primer año de Ciencias de la Computación, que abandoné por motivos personales — pero la curiosidad por la programación se quedó.",
-      "Lo retomé de forma autodidacta y, en los últimos 2 años, he construido aplicaciones web reales, tanto en colaboración con desarrolladores senior como proyectos propios de principio a fin: plataformas SaaS multi-tenant, herramientas con integraciones de IA, dashboards de cripto y sitios con animaciones avanzadas.",
+      "Lo retomé de forma autodidacta y, en los últimos 2 años, he construido aplicaciones web reales, tanto en colaboración con desarrolladores senior como proyectos propios de principio a fin: productos en producción para negocios reales, plataformas SaaS multi-tenant y sitios con animaciones avanzadas.",
       "Hoy trabajo desde Madrid, especializado en frontend con React y Next.js, con disponibilidad para proyectos remotos o presenciales. Me importan las interfaces que se sienten rápidas, accesibles y bien diseñadas."
     ],
-    "stackLabel": "Stack que uso a diario",
+    "stackLabel": "Stack técnico",
     "skillGroups": [
-      { "label": "Frameworks", "items": ["React 18/19", "Next.js 14–16", "Vite"] },
-      { "label": "UI & Estilos", "items": ["Tailwind CSS", "Radix UI", "shadcn/ui"] },
-      { "label": "Animaciones", "items": ["Framer Motion", "GSAP"] },
-      { "label": "Estado & Datos", "items": ["Zustand", "SWR", "TanStack Query", "React Hook Form", "Zod"] },
-      { "label": "Bases de datos", "items": ["PostgreSQL", "MongoDB"] },
-      { "label": "Cloud & Build", "items": ["Vercel", "Bun", "Turborepo", "Docker"] }
+      { "label": "Principales", "items": ["JavaScript", "TypeScript", "React 18/19", "Next.js", "Tailwind CSS", "Radix UI", "shadcn/ui", "Framer Motion", "GSAP", "SWR", "React Hook Form", "Git", "Vercel", "Figma"] },
+      { "label": "Experiencia práctica", "items": ["Supabase", "Stripe", "Appwrite", "AWS S3", "Prisma", "PostgreSQL", "Node.js", "Express", "MongoDB", "next-intl", "Turborepo", "SEO", "Core Web Vitals"] },
+      { "label": "Familiarizado", "items": ["Vitest", "React Testing Library", "Zustand", "Redux", "Docker", "CI/CD", "Agile/Scrum"] }
     ]
   },
   "contact": {
@@ -98,6 +97,8 @@
     },
     "caseStudyCta": "Ver caso de estudio",
     "privateCta": "Privado",
+    "liveCta": "Ver en vivo",
+    "codeCta": "Código",
     "more": "más",
     "imageAlt": "Captura del proyecto {title}"
   },
@@ -135,86 +136,35 @@
   "projects": {
     "items": [
       {
-        "slug": "voo-platform",
-        "title": "VOO Platform",
-        "subtitle": "Frontend de SaaS multi-tenant para comercio electrónico, reservas y eventos",
-        "year": "2024 — Presente",
-        "role": "Desarrollador Frontend",
-        "status": "private",
-        "stack": ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "Radix UI", "Framer Motion", "next-intl", "Zustand", "SWR", "Cloudflare Workers"],
-        "description": "Plataforma SaaS multi-tenant que permite a negocios de eventos, gastronomía y servicios desplegar su propio sitio en minutos. Construí el frontend completo: dashboard de cliente, panel admin global, landing pública y un sistema de templates personalizables que sirve a múltiples tenants desde un único codebase.",
-        "highlights": [
-          "Monorepo con 3 aplicaciones frontend y 5 paquetes compartidos (UI, auth, queries, emails)",
-          "Soporte de dominios personalizados con routing dinámico por tenant",
-          "Multi-idioma con next-intl y theming dinámico configurable por cada negocio",
-          "Despliegue en Cloudflare Workers vía OpenNext para latencia global baja"
-        ],
-        "image": "/projects/voo-platform.svg",
-        "accent": "60a5fa",
-        "featured": true,
-        "caseStudy": {
-          "challenge": "Construir desde cero el frontend de un SaaS multi-tenant que permitiera a tres verticales muy distintas (eventos, gastronomía, servicios) ofrecer una experiencia personalizada al usuario final, sin duplicar código y manteniendo accesibilidad y rendimiento al nivel de productos enterprise.",
-          "solution": "Diseñé una arquitectura de monorepo basada en Bun y Turborepo con tres aplicaciones independientes (dashboard de cliente, admin global y landing) que comparten paquetes de UI, autenticación, queries y plantillas de email. El sistema de templates permite a cada tenant personalizar colores, tipografías, idioma y bloques de contenido sin tocar código.",
-          "decisions": [
-            { "title": "Composición de UI con Radix + shadcn/ui", "body": "Construí un sistema de componentes accesibles (WAI-ARIA) reutilizado por las 3 apps, con tokens semánticos en CSS variables para soportar theming por tenant en runtime sin recompilación." },
-            { "title": "Internacionalización con next-intl", "body": "Integré next-intl con segmentación por subdominio para servir contenido en idiomas distintos según la región del tenant, con fallback automático y soporte de pluralización." },
-            { "title": "Edge deployment con Cloudflare Workers", "body": "Migré el deploy a Cloudflare Workers usando @opennextjs/cloudflare para obtener latencia <50ms global, eliminando cold starts y reduciendo costes de infraestructura." },
-            { "title": "Tipado end-to-end", "body": "Compartí tipos generados desde la API (TypeBox/Prisma) entre las apps frontend, eliminando errores de contrato y dándome autocomplete completo en cada llamada." }
-          ],
-          "outcome": "El producto soporta hoy múltiples tenants en producción con tiempos de carga inferiores a 1s y Lighthouse 90+ en mobile. La arquitectura modular permite añadir nuevas verticales en cuestión de días, no semanas."
-        }
-      },
-      {
         "slug": "yacht-miami-experience",
         "title": "Yacht Miami Experience",
-        "subtitle": "Landing real para un negocio de experiencias en Miami con enfoque premium y conversión",
+        "subtitle": "Plataforma de alquiler de yates en producción para un negocio real de Miami, con reservas y pagos",
         "year": "2025",
-        "role": "Frontend Developer · Senior Backend Developer",
+        "role": "Desarrollador Frontend · en colaboración con un senior que llevó el backend",
         "status": "live",
-        "stack": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel", "Supabase"],
-        "description": "Landing page real para un negocio en Miami, diseñada para transmitir una experiencia premium y captar reservas con una narrativa visual clara. El proyecto combina frontend cuidado y trabajo colaborativo con un equipo backend senior para resolver la presencia digital del negocio.",
+        "stack": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Stripe", "Prisma", "Framer Motion", "i18n", "Vercel"],
+        "description": "Plataforma de alquiler de yates en producción para un negocio real de Miami: catálogo multi-idioma (EN/ES), panel de administración y flujo completo de reservas con pagos vía Stripe. Construí el frontend y las animaciones, trabajando en colaboración con un desarrollador senior que llevó el backend.",
         "highlights": [
-          "Diseño premium orientado a conversión y marca del negocio",
-          "Estructura de contenido y SEO optimizados para búsquedas locales",
-          "Integración con formularios y flujo de reserva sin fricción",
-          "Despliegue y mantenimiento continuo en producción"
+          "Catálogo multi-idioma (EN/ES) con SEO optimizado para búsquedas locales",
+          "Flujo de reservas integrado con pagos de Stripe",
+          "Panel de administración para gestionar el catálogo y las reservas",
+          "Autenticación y almacenamiento de medios con Supabase; animaciones fluidas con Framer Motion"
         ],
-        "image": "/projects/yacht-miami-experience.svg",
+        "image": "/projects/yacht-miami-experience.jpg",
         "accent": "2a9d8f",
         "featured": true,
+        "links": [{ "label": "Ver en vivo", "href": "https://www.yachtmiamiexperience.com/" }],
         "caseStudy": {
-          "challenge": "Crear una presencia web real para un negocio de experiencias en Miami que transmitiera lujo, claridad y confianza desde la primera visita, sin perder velocidad ni usabilidad en móvil.",
-          "solution": "Construí una landing enfocada en narrativa visual, contenido estructurado y llamadas a acción claras, trabajando de forma cercana con el equipo de backend senior para alinear la experiencia de usuario con la lógica de negocio y los flujos de reserva.",
+          "challenge": "Dar a un negocio real de alquiler de yates en Miami una presencia web en producción que transmitiera un aire premium y de confianza, gestionando un flujo real de reservas y pagos, en dos idiomas y sin sacrificar la velocidad en móvil.",
+          "solution": "Construí el frontend de principio a fin — el catálogo multi-idioma, el flujo de reservas y el panel de administración — e integré Stripe para los pagos y Supabase para autenticación y medios, trabajando de forma cercana con un desarrollador senior que llevó la arquitectura del backend.",
           "decisions": [
-            { "title": "Narrativa premium y conversión", "body": "Diseñé una experiencia visual coherente con la marca, priorizando mensajes cortos, secciones bien jerarquizadas y botones de acción visibles para impulsar reservas." },
-            { "title": "Colaboración frontend/backend", "body": "Trabajé junto a un desarrollador senior de backend para definir contratos de contenido y flujos de reserva, manteniendo un enfoque honesto y práctico sobre la arquitectura." },
-            { "title": "Performance y SEO", "body": "Optimicé metadatos, estructura semántica y carga de recursos para que la web se sintiera rápida, profesional y preparada para búsquedas locales." }
+            { "title": "Flujo de reservas con Stripe", "body": "Implementé el checkout y el flujo de pago con Stripe, manteniendo una UI clara y tranquilizadora en cada paso para que el usuario completara una reserva real con confianza." },
+            { "title": "Catálogo multi-idioma (EN/ES)", "body": "Estructuré el catálogo y el contenido para dos idiomas con SEO optimizado para búsquedas locales, para que el negocio llegara tanto a clientes locales como internacionales." },
+            { "title": "Supabase para auth y almacenamiento", "body": "Usé Supabase para autenticación y almacenamiento de medios, y Prisma sobre PostgreSQL para el acceso a datos tipado, colaborando con el desarrollador senior en el modelo de datos." },
+            { "title": "Narrativa premium y rendimiento", "body": "Diseñé una experiencia premium coherente con animaciones de Framer Motion que se mantienen fluidas en móvil, y optimicé metadatos y carga de recursos para la velocidad." }
           ],
-          "outcome": "El sitio quedó preparado para captar interés real del negocio en Miami y demostró cómo combinar un frontend sólido con trabajo en equipo y foco comercial desde el primer día."
+          "outcome": "La plataforma está en producción para un negocio real, recibiendo reservas y pagos reales — mi mejor ejemplo de entregar un producto comercial completo como responsable del frontend junto a un desarrollador backend senior."
         }
-      },
-      {
-        "slug": "dev-events",
-        "title": "Dev Events",
-        "subtitle": "Plataforma para descubrir eventos tecnológicos y networking",
-        "year": "2025",
-        "role": "Desarrollador Frontend",
-        "status": "live",
-        "stack": ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "Vercel"],
-        "description": "Aplicación para descubrir eventos de tecnología y networking, con una experiencia simple y rápida tanto para usuarios como para gestión de contenido.",
-        "highlights": [
-          "Exploración rápida de eventos con filtros y diseño limpio",
-          "Base de datos con MongoDB y despliegue en Vercel",
-          "Experiencia pensada para navegación móvil y desktop",
-          "Proyecto desplegado en producción con repositorio público"
-        ],
-        "image": "/projects/rrr.svg",
-        "accent": "3b82f6",
-        "featured": true,
-        "links": [
-          { "label": "Ver en vivo", "href": "https://devevents-next-mongodb.vercel.app/" },
-          { "label": "Código en GitHub", "href": "https://github.com/JairoGlez43/dev-events.git" }
-        ]
       },
       {
         "slug": "cubanparty",
@@ -224,14 +174,14 @@
         "role": "Desarrollador Frontend",
         "status": "live",
         "stack": ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS v4", "Framer Motion", "tsparticles", "Radix UI", "Appwrite", "AWS S3"],
-        "description": "Plataforma de promoción y gestión de eventos con un fuerte componente visual: animaciones interactivas de partículas, transiciones fluidas entre páginas y un sistema de gestión de contenido respaldado por Appwrite. Toda la multimedia se sirve desde AWS S3 con preloading inteligente.",
+        "description": "Plataforma de promoción y gestión de eventos con un fuerte componente visual: animaciones interactivas de partículas, transiciones fluidas entre páginas y un sistema de gestión de contenido respaldado por Appwrite. Toda la multimedia se sirve desde AWS S3 con preloading inteligente. En producción para un negocio real.",
         "highlights": [
           "Animaciones de partículas con tsparticles sincronizadas con el scroll",
           "Transiciones de página suaves con Framer Motion (layout animations + AnimatePresence)",
           "Backend serverless con Appwrite (auth, base de datos, storage)",
           "Optimización de medios con AWS S3 + preloading basado en viewport"
         ],
-        "image": "/projects/cubanparty.svg",
+        "image": "/projects/cubanparty.jpg",
         "accent": "f472b6",
         "featured": true,
         "links": [{ "label": "Ver en vivo", "href": "https://www.cubanparty.uy/" }],
@@ -248,6 +198,82 @@
         }
       },
       {
+        "slug": "voo-platform",
+        "title": "VOO Platform",
+        "subtitle": "Frontend de SaaS multi-tenant para comercio electrónico, reservas y eventos",
+        "year": "2024 — Presente",
+        "role": "Desarrollador Frontend",
+        "status": "private",
+        "stack": ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "Radix UI", "Framer Motion", "next-intl", "Zustand", "SWR", "Turborepo"],
+        "description": "Plataforma SaaS multi-tenant que permite a negocios de eventos, gastronomía y servicios desplegar su propio sitio en minutos. Construí la UI del frontend en equipo con un desarrollador senior: dashboard de cliente, panel admin global, landing pública y un sistema de templates personalizables que sirve a múltiples tenants desde un único codebase.",
+        "highlights": [
+          "Monorepo con 3 aplicaciones frontend y paquetes compartidos (UI, auth, queries, emails)",
+          "Soporte de dominios personalizados con routing dinámico por tenant",
+          "Multi-idioma con next-intl y theming dinámico configurable por cada negocio",
+          "Librería de componentes accesibles y reutilizables (Radix UI + shadcn/ui)"
+        ],
+        "image": "/projects/voo-platform.svg",
+        "accent": "60a5fa",
+        "featured": true,
+        "caseStudy": {
+          "challenge": "Construir desde cero el frontend de un SaaS multi-tenant que permitiera a tres verticales muy distintas (eventos, gastronomía, servicios) ofrecer una experiencia personalizada al usuario final, sin duplicar código y manteniendo accesibilidad y rendimiento al nivel de productos enterprise.",
+          "solution": "En equipo con un desarrollador senior, ayudé a construir una arquitectura de monorepo con Turborepo y tres aplicaciones independientes (dashboard de cliente, admin global y landing) que comparten paquetes de UI, autenticación, queries y plantillas de email. El sistema de templates permite a cada tenant personalizar colores, tipografías, idioma y bloques de contenido sin tocar código.",
+          "decisions": [
+            { "title": "Composición de UI con Radix + shadcn/ui", "body": "Construí un sistema de componentes accesibles (WAI-ARIA) reutilizado por las 3 apps, con tokens semánticos en CSS variables para soportar theming por tenant en runtime sin recompilación." },
+            { "title": "Internacionalización con next-intl", "body": "Integré next-intl con segmentación por subdominio para servir contenido en idiomas distintos según la región del tenant, con fallback automático y soporte de pluralización." },
+            { "title": "Sistema de templates personalizable", "body": "Construí una capa de templates que permite a cada tenant configurar tema, bloques de contenido e idioma, de modo que un nuevo negocio pueda lanzarse sin trabajo de ingeniería." },
+            { "title": "Tipado end-to-end", "body": "Compartí tipos generados desde la API entre las apps frontend, eliminando errores de contrato y dándome autocomplete completo en cada llamada." }
+          ],
+          "outcome": "El producto soporta múltiples tenants con una arquitectura modular que permite añadir nuevas verticales en cuestión de días, no semanas. Aún en desarrollo activo antes de su lanzamiento público."
+        }
+      },
+      {
+        "slug": "dev-events",
+        "title": "Dev Events",
+        "subtitle": "Plataforma para descubrir eventos tecnológicos y networking",
+        "year": "2025",
+        "role": "Desarrollador Frontend",
+        "status": "live",
+        "stack": ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "MongoDB", "Vercel"],
+        "description": "Proyecto personal: una plataforma de eventos para desarrolladores construida con las últimas features de Next.js (App Router, Server Components) y persistencia en MongoDB, con una experiencia simple y rápida tanto para usuarios como para gestión de contenido.",
+        "highlights": [
+          "Exploración rápida de eventos con filtros y diseño limpio",
+          "Base de datos con MongoDB y despliegue en Vercel",
+          "Experiencia pensada para navegación móvil y desktop",
+          "Proyecto desplegado en producción con repositorio público"
+        ],
+        "image": "/projects/dev-events.jpg",
+        "accent": "3b82f6",
+        "featured": true,
+        "links": [
+          { "label": "Ver en vivo", "href": "https://devevents-next-mongodb.vercel.app/" },
+          { "label": "Código en GitHub", "href": "https://github.com/JairoGlez43/dev-events.git" }
+        ]
+      },
+      {
+        "slug": "mojitos-bar",
+        "title": "Mojitos Bar",
+        "subtitle": "Sitio web de cócteles con storytelling animado en GSAP",
+        "year": "2025",
+        "role": "Desarrollador Frontend",
+        "status": "live",
+        "stack": ["React", "TypeScript", "Vite", "Tailwind CSS", "GSAP"],
+        "description": "Sitio web one-page de un bar de cócteles construido como proyecto personal y showcase de animaciones avanzadas con GSAP. Cada sección está coreografiada con timelines y ScrollTriggers, demostrando dominio de micro-interacciones y storytelling visual.",
+        "highlights": [
+          "Timelines de GSAP con ScrollTrigger en cada sección",
+          "Reveals de texto carácter por carácter sincronizados con el scroll",
+          "Parallax multicapa y scrubbing de animaciones complejas",
+          "Diseño responsive sin perder fluidez en mobile"
+        ],
+        "image": "/projects/mojitos-bar.jpg",
+        "accent": "34d399",
+        "featured": true,
+        "links": [
+          { "label": "Ver en vivo", "href": "https://mojitos-bar.vercel.app/" },
+          { "label": "Código en GitHub", "href": "https://github.com/JairoGlez43/Mojitos-Bar.git" }
+        ]
+      },
+      {
         "slug": "memecoin",
         "title": "Memecoin Dashboard",
         "subtitle": "Interfaz de trading de tokens con visualización en tiempo real",
@@ -262,31 +288,8 @@
           "Diseño responsive optimizado para sesiones largas en desktop",
           "Sistema de notificaciones contextual con Radix Toast"
         ],
-        "image": "/projects/memecoin.svg",
+        "image": "/projects/memecoin.jpg",
         "accent": "fbbf24",
-        "featured": true
-      },
-      {
-        "slug": "mojitos-bar",
-        "title": "Mojitos Bar",
-        "subtitle": "Sitio web de cócteles con storytelling animado en GSAP",
-        "year": "2025",
-        "role": "Desarrollador Frontend",
-        "status": "live",
-        "stack": ["React", "TypeScript", "Vite", "Tailwind CSS", "GSAP"],
-        "description": "Sitio web one-page de un bar de cócteles construido como showcase de animaciones avanzadas con GSAP. Cada sección está coreografiada con timelines y ScrollTriggers, demostrando dominio de micro-interacciones y storytelling visual.",
-        "highlights": [
-          "Timelines de GSAP con ScrollTrigger en cada sección",
-          "Reveals de texto carácter por carácter sincronizados con el scroll",
-          "Parallax multicapa y scrubbing de animaciones complejas",
-          "Diseño responsive sin perder fluidez en mobile"
-        ],
-        "image": "/projects/mojitos-bar.jpg",
-        "accent": "34d399",
-        "links": [
-          { "label": "Ver en vivo", "href": "https://mojitos-bar.vercel.app/" },
-          { "label": "Código en GitHub", "href": "https://github.com/JairoGlez43/Mojitos-Bar.git" }
-        ],
         "featured": true
       }
     ]

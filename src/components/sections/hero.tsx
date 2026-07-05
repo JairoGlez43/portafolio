@@ -139,8 +139,8 @@ export function Hero({ dictionary }: { dictionary: Dictionary["hero"] }) {
           </Link>
           <a
             data-anim="cta"
-            href="/cv-jairo-gonzalez.pdf"
-            download
+            href={dictionary.cvHref}
+            download={dictionary.cvDownload}
             className="group inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-md border border-accent/20 bg-accent/5 px-6 text-sm font-medium text-accent transition-all hover:border-accent/40 hover:bg-accent/10 hover:-translate-y-0.5 active:scale-95"
           >
             {dictionary.cvCta}
