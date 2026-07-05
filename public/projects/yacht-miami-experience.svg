@@ -1,0 +1,18 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="40" fill="#07111F"/>
+  <rect x="80" y="80" width="1040" height="640" rx="28" fill="#0F203A" stroke="#2A9D8F" stroke-width="4"/>
+  <rect x="120" y="140" width="320" height="180" rx="18" fill="#1C3A54"/>
+  <rect x="470" y="140" width="610" height="340" rx="24" fill="#132B43"/>
+  <rect x="120" y="360" width="320" height="260" rx="18" fill="#17334E"/>
+  <circle cx="280" cy="220" r="84" fill="#2A9D8F" fill-opacity="0.25"/>
+  <path d="M220 260C248 208 312 208 340 260" stroke="#F4A261" stroke-width="16" stroke-linecap="round"/>
+  <rect x="500" y="190" width="260" height="26" rx="13" fill="#E9C46A"/>
+  <rect x="500" y="245" width="420" height="18" rx="9" fill="#4CC9F0" fill-opacity="0.9"/>
+  <rect x="500" y="285" width="380" height="18" rx="9" fill="#4CC9F0" fill-opacity="0.7"/>
+  <rect x="500" y="325" width="340" height="18" rx="9" fill="#4CC9F0" fill-opacity="0.5"/>
+  <rect x="160" y="410" width="240" height="28" rx="14" fill="#F4A261"/>
+  <rect x="160" y="468" width="180" height="18" rx="9" fill="#E9C46A"/>
+  <rect x="160" y="500" width="210" height="18" rx="9" fill="#E9C46A" fill-opacity="0.8"/>
+  <rect x="160" y="560" width="140" height="18" rx="9" fill="#E9C46A" fill-opacity="0.6"/>
+  <text x="120" y="690" fill="#F8F9FA" font-family="Arial, sans-serif" font-size="38" font-weight="700">Yacht Miami Experience</text>
+</svg>

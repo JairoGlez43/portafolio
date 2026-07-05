@@ -81,7 +81,7 @@ export default async function RootLayout({
     "@type": "Person",
     name: "Jairo González Travieso",
     url: SITE_URL,
-    email: "mailto:jairoglez1999@gmail.com",
+    email: "mailto:jairo.front.dev@gmail.com",
     jobTitle: dictionary.layout.jobTitle,
     description: dictionary.metadata.description,
     address: {

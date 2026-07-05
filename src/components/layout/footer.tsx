@@ -24,7 +24,7 @@ const socials = [
     icon: GithubIcon,
   },
   {
-    href: "mailto:jairoglez1999@gmail.com",
+    href: "mailto:jairo.front.dev@gmail.com",
     label: "Email",
     icon: Mail,
   },

@@ -53,8 +53,8 @@
     "eyebrow": "sobre mí",
     "title": "Cómo llegué hasta aquí",
     "paragraphs": [
-      "Empecé estudiando Farmacia en la Universidad de La Habana, donde me licencié. Durante esos años cursé también dos años de Ciencias de la Computación que abandoné por motivos personales — pero la curiosidad por la programación se quedó.",
-      "Lo retomé de forma autodidacta y, en los últimos 2 años, he construido aplicaciones web completas como freelance: plataformas SaaS multi-tenant, herramientas con integraciones de IA, dashboards de cripto y sitios con animaciones avanzadas.",
+      "Empecé estudiando Farmacia en la Universidad de La Habana, donde me licencié. Durante esos años cursé también el primer año de Ciencias de la Computación, que abandoné por motivos personales — pero la curiosidad por la programación se quedó.",
+      "Lo retomé de forma autodidacta y, en los últimos 2 años, he construido aplicaciones web reales, tanto en colaboración con desarrolladores senior como proyectos propios de principio a fin: plataformas SaaS multi-tenant, herramientas con integraciones de IA, dashboards de cripto y sitios con animaciones avanzadas.",
       "Hoy trabajo desde Madrid, especializado en frontend con React y Next.js, con disponibilidad para proyectos remotos o presenciales. Me importan las interfaces que se sienten rápidas, accesibles y bien diseñadas."
     ],
     "stackLabel": "Stack que uso a diario",
@@ -63,8 +63,8 @@
       { "label": "UI & Estilos", "items": ["Tailwind CSS", "Radix UI", "shadcn/ui"] },
       { "label": "Animaciones", "items": ["Framer Motion", "GSAP"] },
       { "label": "Estado & Datos", "items": ["Zustand", "SWR", "TanStack Query", "React Hook Form", "Zod"] },
-      { "label": "Bases de datos", "items": ["PostgreSQL", "MongoDB", "Redis"] },
-      { "label": "Cloud & Build", "items": ["Cloudflare Workers", "Vercel", "Bun", "Turborepo", "Docker"] }
+      { "label": "Bases de datos", "items": ["PostgreSQL", "MongoDB"] },
+      { "label": "Cloud & Build", "items": ["Vercel", "Bun", "Turborepo", "Docker"] }
     ]
   },
   "contact": {
@@ -165,34 +165,56 @@
         }
       },
       {
-        "slug": "ai-analyzer",
-        "title": "AI Analyzer",
-        "subtitle": "Detección y humanización de contenido generado por IA con editor enriquecido",
-        "year": "2024",
-        "role": "Desarrollador Frontend",
+        "slug": "yacht-miami-experience",
+        "title": "Yacht Miami Experience",
+        "subtitle": "Landing real para un negocio de experiencias en Miami con enfoque premium y conversión",
+        "year": "2025",
+        "role": "Frontend Developer · Senior Backend Developer",
         "status": "live",
-        "stack": ["Next.js 14", "TypeScript", "Tailwind CSS", "Radix UI", "SWR", "React Hook Form", "Zod", "Stripe", "Claude API", "Gemini API"],
-        "description": "Plataforma SaaS que analiza textos para detectar contenido generado por IA y ofrece humanización automática. Integra 3 modelos distintos (Anthropic Claude, Google Gemini, Winston AI) en una interfaz unificada con editor enriquecido, sistema de créditos y suscripciones de pago.",
+        "stack": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel", "Supabase"],
+        "description": "Landing page real para un negocio en Miami, diseñada para transmitir una experiencia premium y captar reservas con una narrativa visual clara. El proyecto combina frontend cuidado y trabajo colaborativo con un equipo backend senior para resolver la presencia digital del negocio.",
         "highlights": [
-          "Editor de texto enriquecido (Novel/TipTap) con resaltado de código y comparativa antes/después",
-          "Integración de 3 proveedores de IA con UI única y selector de modelo en runtime",
-          "Sistema de suscripciones con Stripe (checkout, webhook, portal de cliente)",
-          "Visualización de resultados con gráficos interactivos y exportación a PDF"
+          "Diseño premium orientado a conversión y marca del negocio",
+          "Estructura de contenido y SEO optimizados para búsquedas locales",
+          "Integración con formularios y flujo de reserva sin fricción",
+          "Despliegue y mantenimiento continuo en producción"
         ],
-        "image": "/projects/ai-analyzer.svg",
-        "accent": "a78bfa",
+        "image": "/projects/yacht-miami-experience.svg",
+        "accent": "2a9d8f",
         "featured": true,
         "caseStudy": {
-          "challenge": "Diseñar una experiencia de usuario que hiciera comprensible y accionable el output de tres modelos de IA distintos para usuarios no técnicos, manteniendo tiempos de respuesta perceptiblemente rápidos a pesar de las latencias inherentes a las llamadas a LLMs.",
-          "solution": "Construí una interfaz centrada en un editor enriquecido como elemento principal, con resultados de análisis presentados como visualizaciones interactivas en lugar de raw output. La integración con Vercel AI SDK permite streaming de respuestas, dando feedback inmediato al usuario.",
+          "challenge": "Crear una presencia web real para un negocio de experiencias en Miami que transmitiera lujo, claridad y confianza desde la primera visita, sin perder velocidad ni usabilidad en móvil.",
+          "solution": "Construí una landing enfocada en narrativa visual, contenido estructurado y llamadas a acción claras, trabajando de forma cercana con el equipo de backend senior para alinear la experiencia de usuario con la lógica de negocio y los flujos de reserva.",
           "decisions": [
-            { "title": "Streaming con Vercel AI SDK", "body": "Usé el AI SDK para hacer streaming de las respuestas de Claude/Gemini directamente al editor, eliminando la sensación de espera y mostrando el contenido humanizado conforme se genera." },
-            { "title": "Editor con Novel + extensiones de TipTap", "body": "Personalicé Novel con extensiones de resaltado de código, marcadores de probabilidad de IA por párrafo y comparativa visual antes/después, todo manteniendo el flujo de un editor común." },
-            { "title": "Stripe + sistema de créditos", "body": "Implementé checkout, webhooks y portal de cliente con Stripe, sumado a un sistema de créditos que descuenta tokens según el modelo y la longitud del texto, con límites visualmente claros en la UI." },
-            { "title": "Validación con Zod + React Hook Form", "body": "Toda la entrada del usuario (prompts, configuración, datos de pago) se valida en cliente con Zod y React Hook Form, devolviendo errores inline accesibles antes de gastar créditos." }
+            { "title": "Narrativa premium y conversión", "body": "Diseñé una experiencia visual coherente con la marca, priorizando mensajes cortos, secciones bien jerarquizadas y botones de acción visibles para impulsar reservas." },
+            { "title": "Colaboración frontend/backend", "body": "Trabajé junto a un desarrollador senior de backend para definir contratos de contenido y flujos de reserva, manteniendo un enfoque honesto y práctico sobre la arquitectura." },
+            { "title": "Performance y SEO", "body": "Optimicé metadatos, estructura semántica y carga de recursos para que la web se sintiera rápida, profesional y preparada para búsquedas locales." }
           ],
-          "outcome": "La interfaz convirtió un producto técnico en algo usable para creadores de contenido sin background en IA. La arquitectura permite añadir nuevos proveedores de IA con cambios mínimos en el frontend."
+          "outcome": "El sitio quedó preparado para captar interés real del negocio en Miami y demostró cómo combinar un frontend sólido con trabajo en equipo y foco comercial desde el primer día."
         }
+      },
+      {
+        "slug": "dev-events",
+        "title": "Dev Events",
+        "subtitle": "Plataforma para descubrir eventos tecnológicos y networking",
+        "year": "2025",
+        "role": "Desarrollador Frontend",
+        "status": "live",
+        "stack": ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "Vercel"],
+        "description": "Aplicación para descubrir eventos de tecnología y networking, con una experiencia simple y rápida tanto para usuarios como para gestión de contenido.",
+        "highlights": [
+          "Exploración rápida de eventos con filtros y diseño limpio",
+          "Base de datos con MongoDB y despliegue en Vercel",
+          "Experiencia pensada para navegación móvil y desktop",
+          "Proyecto desplegado en producción con repositorio público"
+        ],
+        "image": "/projects/rrr.svg",
+        "accent": "3b82f6",
+        "featured": true,
+        "links": [
+          { "label": "Ver en vivo", "href": "https://devevents-next-mongodb.vercel.app/" },
+          { "label": "Código en GitHub", "href": "https://github.com/JairoGlez43/dev-events.git" }
+        ]
       },
       {
         "slug": "cubanparty",
@@ -212,6 +234,7 @@
         "image": "/projects/cubanparty.svg",
         "accent": "f472b6",
         "featured": true,
+        "links": [{ "label": "Ver en vivo", "href": "https://www.cubanparty.uy/" }],
         "caseStudy": {
           "challenge": "Crear una experiencia visual memorable para una plataforma de eventos sin sacrificar el rendimiento en dispositivos móviles, donde la mayoría del público accede. El reto era integrar animaciones complejas de partículas con datos en tiempo real sin frame drops.",
           "solution": "Combiné tsparticles para los efectos de fondo (con presets ligeros en mobile) con Framer Motion para las transiciones de UI, separando claramente animaciones decorativas de las interactivas. La gestión de datos con Appwrite + SWR mantiene la app reactiva sin necesidad de backend propio.",
@@ -258,9 +281,12 @@
           "Parallax multicapa y scrubbing de animaciones complejas",
           "Diseño responsive sin perder fluidez en mobile"
         ],
-        "image": "/projects/mojitos-bar.svg",
+        "image": "/projects/mojitos-bar.jpg",
         "accent": "34d399",
-        "links": [{ "label": "Código en GitHub", "href": "https://github.com/JairoGlez43/Mojitos-Bar" }],
+        "links": [
+          { "label": "Ver en vivo", "href": "https://mojitos-bar.vercel.app/" },
+          { "label": "Código en GitHub", "href": "https://github.com/JairoGlez43/Mojitos-Bar.git" }
+        ],
         "featured": true
       }
     ]
